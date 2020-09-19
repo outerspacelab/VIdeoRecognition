@@ -11,7 +11,7 @@ CONV_NET=resnet18
 INPUT_SIZE=224
 
 # Dataset
-DATASET_ROOT_DIR=/home/young/Data/Projects/Datasets
+DATASET_ROOT_DIR=/home/young/Data/Projects/Datasets/Reasearch/Action
 DATASET=ucf101
 DATASET_TYPE=rgb
 SPLIT=1
@@ -32,10 +32,10 @@ TRAIN_DIR=/home/young/Data/Projects/Models/"$NETWORK"_"Backbone$CONV_NET"_\
 "Epoches$EPOCHES"
 
 # Retrain
-$rm -r $TRAIN_DIR
+rm -r $TRAIN_DIR
 
 # Run
-python main.py \
+python backends/pytorch/main.py \
         --mode=$MODE \
         --input_size=$INPUT_SIZE \
         --dataset_root_dir=$DATASET_ROOT_DIR \
