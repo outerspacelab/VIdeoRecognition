@@ -1,1 +1,1 @@
-# VideoRecognition
+# VIdeoRecognition
