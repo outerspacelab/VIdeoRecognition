@@ -9,7 +9,7 @@ from nets import nets_factory
 def main():
   # Start
   os.system('clear')
-  print("+ Video Understanding")
+  print("+ Video Recognition")
 
   # System
   env.Settings(seed=0)

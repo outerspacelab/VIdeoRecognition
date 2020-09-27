@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Network
-NETWORK=TBGNet
+NETWORK=TemporallyGenerativeClueNet
 
 # Mode
 MODE=train
@@ -26,13 +26,13 @@ GPUS=0,1
 BATCH_SIZE=8
 LR=0.000125
 EPOCHES=2
-TRAIN_DIR=/home/young/Data/Projects/Models/"$NETWORK"_"Backbone$CONV_NET"_\
-"InputSize$INPUT_SIZE"_"Dataset$DATASET"_"DatasetType$DATASET_TYPE"_"Split$SPLIT"_\
-"NumClips$NUM_CLIPS"_"Numframes$NUM_FRAMES"_"GPUS$GPUS"_"BatchSize$BATCH_SIZE"_"Lr$LR"_\
-"Epoches$EPOCHES"
+TRAIN_DIR=/home/young/Data/Projects/Models/"$NETWORK"_"backbone$CONV_NET"_\
+"inputSize$INPUT_SIZE"_"dataset$DATASET"_"datasetType$DATASET_TYPE"_"split$SPLIT"_\
+"numclips$NUM_CLIPS"_"numframes$NUM_FRAMES"_"gpus$GPUS"_"batchSize$BATCH_SIZE"_"lr$LR"_\
+"epoches$EPOCHES"
 
 # Retrain
-rm -r $TRAIN_DIR
+#rm -r $TRAIN_DIR
 
 # Run
 python backends/pytorch/main.py \

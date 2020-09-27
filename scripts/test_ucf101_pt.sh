@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Network
-NETWORK=TemporallyBalancedGenerativeNet
+NETWORK=TemporallyGenerativeClueNet
 
 # Mode
 MODE=test
@@ -11,7 +11,7 @@ CONV_NET=resnet18
 INPUT_SIZE=224
 
 # Dataset
-DATASET_ROOT_DIR=/home/young/Data/Projects/Datasets
+DATASET_ROOT_DIR=/home/young/Data/Projects/Datasets/Reasearch/Action
 DATASET=ucf101
 DATASET_TYPE=rgb
 SPLIT=1
@@ -21,17 +21,17 @@ NUM_FRAMES=16
 # Preprocess
 #PREPROCESS=RandomCrop,RandomHorizontalFlip
 
-# Train
+# Test
 GPUS=0
 BATCH_SIZE=1
 EPOCHES=1
-TRAIN_DIR=/home/young/Data/Projects/Models/"$NETWORK"_"Backbone$CONV_NET"_\
-"InputSize$INPUT_SIZE"_"Dataset$DATASET"_"DatasetType$DATASET_TYPE"_"Split$SPLIT"_\
-"NumClips$NUM_CLIPS"_"Numframes$NUM_FRAMES"_"GPUS$GPUS"_"BatchSize$BATCH_SIZE"_"Lr$LR"_\
-"Epoches$EPOCHES"
+TRAIN_DIR=/home/young/Data/Projects/Models/"$NETWORK"_"backbone$CONV_NET"_\
+"inputSize$INPUT_SIZE"_"dataset$DATASET"_"datasetType$DATASET_TYPE"_"split$SPLIT"_\
+numclips1_numframes8_gpus0,1_batchSize8_lr0.000125_epoches2
+
 
 # Run
-python main.py \
+python backends/pytorch/main.py \
         --mode=$MODE \
         --input_size=$INPUT_SIZE \
         --dataset_root_dir=$DATASET_ROOT_DIR \

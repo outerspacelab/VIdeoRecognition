@@ -44,6 +44,7 @@ class Backbone(object):
         self.pre_list = [0]*10000
         self.label_list = [0]*10000
 
+
     self.writer = SummaryWriter(os.path.join(self.args.train_dir, 'summary'))
 
     for para in list(self.backbone.parameters()):
@@ -109,8 +110,7 @@ class Backbone(object):
         self.writer.add_image('input_images', img_grid)
 
         # screen print
-        print("| \033[32m{1:" "3d}%\033[0m [{0} Epoch: {2}/{3}, Step: {4}/{5}, Learning_rate: {8:.6f}, Loss: {6:.4f}, \
-Smooth_loss: {7:.4f}]".format(
+        print("| [\033[32m{1:" "3d}%\033[0m {0}] Epoch: {2}/{3}, Step: {4}/{5}, Learning_rate: {8:.6f}, Loss: {6:.4f} ({7:.4f})".format(
              time.ctime(),
              int(self.data.step/self.data.INFO['max_steps']*100), self.data.epoch, 
              self.data.args.epoches, 
@@ -161,7 +161,7 @@ Smooth_loss: {7:.4f}]".format(
       all_acc = all_tp_sel / all_pre_sel 
      
       # log
-      print("| \033[32m{1:" "3d}%\033[0m [{0} Epoch: {2}/{3}, Step: {4}/{5}, Acc: {6:.4f}, Re: {7:.5f}".format(
+      print("| [\033[32m{1:" "3d}%\033[0m {0}] Epoch: {2}/{3}, Step: {4}/{5}, Acc: {6:.4f}, Re: {7:.5f}".format(
             time.ctime(), int(self.data.step/self.data.INFO['max_steps']*100), 
             self.data.epoch, self.data.args.epoches, self.data.step, 
             self.data.INFO['max_steps'], all_acc.mean(), all_re.mean()
